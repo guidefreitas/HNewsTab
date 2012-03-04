@@ -42,5 +42,5 @@
 - (void)closePanel;
 - (NSRect)statusRectForWindow:(NSWindow *)window;
 -(IBAction) refreshClicked: (id) sender;
--(id) refreshWebsite;
+-(void) refreshWebsite;
 @end

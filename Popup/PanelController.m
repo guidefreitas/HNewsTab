@@ -220,7 +220,7 @@
 {
     NSString *newUrlString = [[request URL] absoluteString];
     
-    if(![newUrlString isEqual:@"http://cheeaun.github.com/hnmobile/#/"]){
+    if(![newUrlString hasPrefix:@"http://cheeaun.github.com/hnmobile/#/"]){
        
         [listener ignore];
         [[NSWorkspace sharedWorkspace] openURL:[request URL]];
@@ -237,7 +237,7 @@
     [self refreshWebsite];
 }
 
--(id) refreshWebsite{
+-(void) refreshWebsite{
     NSURL*url=[NSURL URLWithString:@"http://cheeaun.github.com/hnmobile/#/"];
     NSURLRequest*request=[NSURLRequest requestWithURL:url];
     [[[self webview] mainFrame] loadRequest:request];
