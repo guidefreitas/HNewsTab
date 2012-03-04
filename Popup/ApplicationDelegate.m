@@ -53,6 +53,12 @@ void *kContextActivePanel = &kContextActivePanel;
 {
     self.menubarController.hasActiveIcon = !self.menubarController.hasActiveIcon;
     self.panelController.hasActivePanel = self.menubarController.hasActiveIcon;
+    
+}
+
+- (IBAction)toggleRightPanel:(id)sender{
+    NSLog(@"CLICK DIREITO");
+    [self.panelController openMenu];
 }
 
 #pragma mark - Public accessors

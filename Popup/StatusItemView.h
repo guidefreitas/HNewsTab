@@ -4,7 +4,7 @@
     NSImage *_alternateImage;
     NSStatusItem *_statusItem;
     BOOL _isHighlighted;
-    SEL _action;
+    SEL _action, _rightAction;
     id _target;
 }
 
@@ -16,6 +16,7 @@
 @property (nonatomic, setter = setHighlighted:) BOOL isHighlighted;
 @property (nonatomic, readonly) NSRect globalRect;
 @property (nonatomic) SEL action;
+@property (nonatomic) SEL rightAction;
 @property (nonatomic, assign) id target;
 
 @end

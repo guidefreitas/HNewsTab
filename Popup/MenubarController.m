@@ -18,6 +18,7 @@
         _statusItemView.image = [NSImage imageNamed:@"Status"];
         _statusItemView.alternateImage = [NSImage imageNamed:@"StatusHighlighted"];
         _statusItemView.action = @selector(togglePanel:);
+        _statusItemView.rightAction = @selector(toggleRightPanel:);
     }
     return self;
 }

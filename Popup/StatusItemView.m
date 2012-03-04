@@ -8,7 +8,7 @@
 @synthesize isHighlighted = _isHighlighted;
 @synthesize action = _action;
 @synthesize target = _target;
-
+@synthesize rightAction = _rightAction;
 #pragma mark -
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem
@@ -55,7 +55,15 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    [NSApp sendAction:self.action to:self.target from:self];
+    if([theEvent modifierFlags] & NSControlKeyMask) {
+        [NSApp sendAction:self.rightAction to:self.target from:self];
+    } else {
+        [NSApp sendAction:self.action to:self.target from:self];
+    }
+}
+
+- (void) rightMouseDown:(NSEvent *)theEvent{
+    [NSApp sendAction:self.rightAction to:self.target from:self];
 }
 
 #pragma mark -

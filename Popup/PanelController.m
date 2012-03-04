@@ -8,8 +8,8 @@
 
 #define SEARCH_INSET 17
 
-#define POPUP_HEIGHT 422
-#define PANEL_WIDTH 500
+#define POPUP_HEIGHT 500
+#define PANEL_WIDTH 400
 #define MENU_ANIMATION_DURATION .1
 
 #pragma mark -
@@ -66,6 +66,10 @@
     
     [self refreshWebsite];
 
+}
+
+- (BOOL)menuHasKeyEquivalent:(NSMenu *)menu forEvent:(NSEvent *)event target:(id *)target action:(SEL *)action{
+    return YES;
 }
 
 #pragma mark - Public accessors
@@ -158,6 +162,13 @@
     return statusRect;
 }
 
+- (void)openMenu{
+    NSLog(@"ABRINDO MENU");
+    NSWindow *panel = [self window];
+    NSRect screenRect = [[panel screen] frame];
+    
+}
+
 - (void)openPanel
 {
     NSWindow *panel = [self window];
@@ -201,11 +212,7 @@
     [[panel animator] setFrame:panelRect display:YES];
     [[panel animator] setAlphaValue:1];
     [NSAnimationContext endGrouping];
-    
-    
-    
-    
-    
+ 
     
 }
 
@@ -213,7 +220,7 @@
 {
     NSString *newUrlString = [[request URL] absoluteString];
     
-    if(![newUrlString isEqual:@"http://news.ycombinator.com/"]){
+    if(![newUrlString isEqual:@"http://cheeaun.github.com/hnmobile/#/"]){
        
         [listener ignore];
         [[NSWorkspace sharedWorkspace] openURL:[request URL]];
@@ -231,7 +238,7 @@
 }
 
 -(id) refreshWebsite{
-    NSURL*url=[NSURL URLWithString:@"http://news.ycombinator.com/"];
+    NSURL*url=[NSURL URLWithString:@"http://cheeaun.github.com/hnmobile/#/"];
     NSURLRequest*request=[NSURLRequest requestWithURL:url];
     [[[self webview] mainFrame] loadRequest:request];
 }
