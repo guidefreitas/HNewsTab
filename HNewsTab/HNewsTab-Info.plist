@@ -42,5 +42,7 @@
 	<array/>
 	<key>UTImportedTypeDeclarations</key>
 	<array/>
+	<key>LSUIElement</key>
+	<true/>
 </dict>
 </plist>
