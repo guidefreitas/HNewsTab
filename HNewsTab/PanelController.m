@@ -220,7 +220,7 @@
 {
     NSString *newUrlString = [[request URL] absoluteString];
     
-    if(![newUrlString hasPrefix:@"http://cheeaun.github.io/hackerweb/#/"]){
+    if(![newUrlString hasPrefix:@"https://cheeaun.github.io/hackerweb/#/"]){
        
         [listener ignore];
         [[NSWorkspace sharedWorkspace] openURL:[request URL]];
@@ -238,7 +238,7 @@
 }
 
 -(void) refreshWebsite{
-    NSURL*url=[NSURL URLWithString:@"http://cheeaun.github.io/hackerweb/#/"];
+    NSURL*url=[NSURL URLWithString:@"https://cheeaun.github.io/hackerweb/#/"];
     NSURLRequest*request=[NSURLRequest requestWithURL:url];
     [[[self webview] mainFrame] loadRequest:request];
 }
